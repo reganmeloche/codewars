@@ -40,3 +40,10 @@ public class SolutionTest {
     assertEquals(Long.valueOf(0L), PaperFolder.fold(new Double(0.00005)));
   }
 }
+
+// Recursive solution:
+public class PaperFolder2 {
+  public static Long fold(double d) {
+    return d < 0 ? null : d <= 0.0001 ? 0 : 1 + fold(d/2);
+  }
+}
