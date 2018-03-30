@@ -10,27 +10,18 @@ rAvg(12) = 11;
 
 */
 
-function grille(message, code) {
-   var result = '';
-   
-   var bin = (code >>> 0).toString(2);
-   
-   for (var i = bin.length; i < message.length; i++) {
-     bin = '0' + bin;
-   }
+function runningAverage() {
+  var amt = 0;
+  var ct = 0;
 
-     
-   if (bin.length > message.length) {
-     bin = bin.substring(bin.length - message.length)
-   }
-
-   for (var j = 0; j < message.length; j++) {
-     if (bin[j] == 1) {
-       result += message[j];
-     }
-   }
-
-   return result;
+  function f(x) {
+    amt += x;
+    ct++;
+    var num = amt/ct;
+    return Math.round(num * 100) / 100;
+  }
+  
+  return f;
 }
 
 // Test
